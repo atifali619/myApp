@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from './shared/shared.module';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AuthModule
+    AuthModule,
+    RouterModule,
+    SharedModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,4 +19,16 @@ export class LoginService {
       }
     );
   }
+
+  logIn(email: any, password: any) {
+    return this.http.post<any>(
+      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
+        environment.API_KEY,
+      {
+        email: email,
+        password: password,
+        returnSecureToken: true,
+      }
+    );
+  }
 }

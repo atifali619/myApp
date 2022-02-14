@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,6 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
   constructor(private http: HttpClient) {}
+
+  isLoggedIn = new Subject<any>();
 
   signUp(email: any, password: any) {
     return this.http.post<any>(

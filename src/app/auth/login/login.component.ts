@@ -46,15 +46,17 @@ export class LoginComponent implements OnInit {
         );
       }
 
-      this.authSubscription.subscribe((res) => {
-        this.loginSuccess();
+      this.authSubscription.subscribe((loginResponse) => {
+        this.loginSuccess(loginResponse);
       });
       this.loginForm.reset();
     }
   }
 
-  loginSuccess(){
+  loginSuccess(authObject:any){
     this.router.navigate(['/home']);
+    sessionStorage.setItem("authObject", JSON.stringify(authObject));
+    this.loginService.isLoggedIn.next(true);
   }
 
 }
